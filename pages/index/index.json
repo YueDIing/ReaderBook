@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "search": "../../components/search/index",
+    "nav": "../../components/diy-nav/nav",
+    "protection": "../../components/protection/protection"
+  }
+}

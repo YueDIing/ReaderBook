@@ -1,0 +1,81 @@
+<!--pages/search/search.wxml-->
+<protection state="{{config.modes.protection.state}}"></protection>
+<view class="container {{config.modes.daytoNight.state ? 'night' : ''}}">
+  <nav url="../index/index" title="搜索" nightModel="{{config.modes.daytoNight.state}}"></nav>
+  <view class="main-content">
+    <view class="search-wrap">
+      <input
+        class="search"
+        auto-focus="true"
+        value=""
+        type="search"
+        placeholder="请输入书名或作者名"
+        confirm-type="search"
+        bindconfirm="searchHandle"
+      ></input>
+      <navigator class="cancel" open-type="navigateBack" delta="1" hover-class="none">取消</navigator>
+    </view>
+    <view class="search-default" wx:if="{{!showSearchRes}}">
+      <!-- 热门搜索 -->
+      <view class="hot-search">
+        <text class="title">热门搜索</text>
+        <view class="hot-search-list">
+          <navigator
+            url="../bookInfo/bookInfo?bookId={{item.bookid}}"
+            class="hot-search-item"
+            wx:for="{{hotSearch}}"
+            wx:for-item="item"
+            wx:index="index"
+            wx:key="index"
+            hover-class="none"
+            data-name="{{item.title}}"
+            bindtap="addHistory"
+          >
+            {{item.title}}
+          </navigator>
+        </view>
+      </view>
+      <!-- 搜索历史 -->
+      <view class="history" wx:if="{{searchHistory.length}}">
+        <text class="title">历史搜索</text>
+        <view class="history-list">
+          <view
+            url="#"
+            class="hot-search-item"
+            wx:for="{{searchHistory}}"
+            wx:for-item="item"
+            wx:index="index"
+            wx:key="index"
+            data-name="{{item}}"
+            bindtap="historySearch"
+          >
+            {{item}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view
+      class="search-res-list"
+      wx:else
+    >
+      <navigator class="justify search-book"
+        wx:for="{{searchResult}}"
+        wx:for-item="item"
+        wx:index="index"
+        wx:key="itme.title || index"
+        url="../bookInfo/bookInfo?bookId={{item.bid}}"
+        hover-class="none"
+      >
+        <image class="book-img" src="{{item.cover}}"></image>
+        <view class="book-info">
+          <view class="book-info-title">{{item.title}}</view>
+          <text class="book-info-desc">{{item.desc}}</text>
+          <view class="justify about-book">
+            <text class="book-author">{{item.author}}</text>
+            <text class="book-status" style="color: #{{item.status ? '999:' : '23b383'}}">{{item.status ? '完结' : '连载'}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

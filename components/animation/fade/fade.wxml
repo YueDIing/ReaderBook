@@ -1,0 +1,10 @@
+<!--pages/components/animation/fade/fade.wxml-->
+<!-- <view
+  class="fade" wx:if="{{status}}"
+  style="opacity: {{ start ? '1' : '0'}}; transition: opacity {{ endTransitionAnimate ? duration : 0}}ms;">
+  <slot></slot>
+</view> -->
+
+<view class="fade" animation="{{animation}}">
+  <slot></slot>
+</view>

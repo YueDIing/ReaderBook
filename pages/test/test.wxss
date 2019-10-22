@@ -1,0 +1,12 @@
+.tap{
+  width: 100vw;
+  height: 100px;
+  background-color: #ccc;
+}
+.box{
+  /* position: absolute; */
+  /* left: 0; */
+  width: 100vw;
+  height: 100px;
+  background-color: greenyellow;
+}

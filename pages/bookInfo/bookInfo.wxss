@@ -1,0 +1,198 @@
+/* pages/bookInfo/bookInfo.wxss */
+.book-head{
+  margin: 0rpx 0 100rpx;
+}
+.book-img{
+  width: 226rpx;
+  height: 280rpx;
+  margin-right: 40rpx;
+  border-radius: 10rpx;
+}
+.book-info{
+  width: calc(100% - 240rpx);
+}
+.book-title{
+  margin-bottom: 30rpx;
+}
+.book-author,
+.book-status{
+  font-size: 28rpx;
+  color: #999;
+}
+.book-author{
+  margin-bottom: 100rpx;
+}
+.book-desc .title{
+  margin-bottom: 20rpx;
+}
+.desc-text{
+  position: relative;
+  height: 120rpx;
+  overflow: hidden;
+}
+.desc-text text{
+  line-height: 40rpx;
+  color: #999;
+}
+.book-tag{
+  display: flex;
+  margin-top: 30rpx;
+}
+.book-tag-item{
+  margin-right: 15rpx;
+  padding: 10rpx 25rpx;
+  border-radius: 6rpx;
+  background-color: #f5f5f5;
+}
+.expand{
+  height: auto;
+}
+.expand .expand-icon{
+  position: static;
+  margin-left: 10rpx;
+}
+.expand .expand-icon::after{
+  display: none;
+}
+.expand-icon{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 40rpx;
+  background-color: white;
+}
+.expand-icon::after{
+  position: absolute;
+  top: 0;
+  left: -80rpx;
+  content: '';
+  width: 80rpx;
+  height: 40rpx;
+  background: linear-gradient(to left, white, transparent);
+  /* 记录: 在ios下 白色到透明渐变在ios下显示为灰色 */
+  /* background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba255, 255 ,255, 0) 100%; */
+}
+.book-chapter .justify{
+  box-sizing: border-box;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.chapter-info{
+  display: flex;
+  align-items: center;
+  color: #999;
+}
+.chapter-info .arrow-r{
+  margin-left: 30rpx;
+}
+/* comment */
+.comment-item{
+  margin-bottom: 30rpx;
+}
+.comment-user-info{
+  display: flex;
+  align-items: center;
+}
+.comment .title{
+  box-sizing: border-box;
+  padding: 50rpx 0;
+}
+.user-img{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+  background-color: #e5e5e5;
+  margin-right: 30rpx;
+}
+.comment-text{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: 120rpx;
+  line-height: 40rpx;
+  margin: 30rpx 0 40rpx 0;
+  padding-left: 80rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.comment-bottom{
+  display: flex;
+  align-items: center;
+  padding-left: 80rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.comment-bottom text{
+  margin-left: 10rpx;
+}
+.reply{
+  box-sizing: border-box;
+  margin: 0 20rpx 0 auto;
+}
+.reply,
+.good{
+  display: flex;
+}
+.comment-more{
+  margin: 40rpx 0 80rpx 0;
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center; 
+  color: #23b383;
+}
+.menu{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20rpx 30rpx;
+  background-color: white;
+  border-top: 1px solid #e5e5e5;
+}
+.menu > view,
+.menu > navigator{
+  flex: 1;
+  font-size: inherit;
+  text-align: center;
+  line-height: 90rpx;
+  color: #23b383;
+}
+.menu > .add {
+  color: #ccc;
+}
+
+/* night */
+.night .book-img,
+.user-img{
+  opacity: .4;
+}
+.user-img{
+  background-color: #242426;
+}
+.night .book-tag-item,
+.night .expand-icon{
+  color: #666667;
+  background-color: #242426;
+}
+.night .expand-icon::after{
+  background: linear-gradient(to left, #242426, transparent);
+}
+.night .book-chapter .justify{
+  border-color: #222;
+}
+.night .menu{
+  color: #666667;
+  border-color: #222;
+  background-color: #131314;
+}
+.night .menu > navigator{
+  color: #003d2b;
+}
+.night .menu > view{
+  color: #666667;
+}

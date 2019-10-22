@@ -1,0 +1,11 @@
+/* pages/components/search/inde.wxss */
+@import '../../app.wxss';
+.search text{
+  color: #9c9c9c;
+}
+.night .search{
+  background-color:#545455;
+}
+.night .search text{
+  color: #ccc;
+}

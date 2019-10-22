@@ -1,0 +1,34 @@
+@import "../../public/css/iconfont.wxss";
+.nav{
+  width: 100vw;
+  padding: 50rpx 32rpx 20rpx;
+  --height: 66rpx;
+  line-height: var(--height);
+  background-color: white;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.nav > view{
+  display: inline-block;
+}
+.nav-back{
+  margin-right: 6rpx;
+  font-size: 34rpx;
+  line-height: var(--height);
+}
+.nav-title{
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.night.night{
+  color: #545455;
+  background-color: #18181a;
+}
+.night.night view,
+.night.night text{
+  color: inherit;
+}

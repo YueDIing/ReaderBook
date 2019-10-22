@@ -1,0 +1,123 @@
+/* pages/search/search.wxss */
+@import '../../app.wxss';
+.container{
+  min-height: 100vh;
+}
+.search-wrap{
+  display: flex;
+}
+.search-wrap input{
+  width: 85%;
+}
+.search-wrap .cancel{
+  display: block;
+  width: 15%;
+  margin: 8rpx 0 15rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #23b383;
+}
+.title{
+  display: block;
+  margin: 40rpx 0 32rpx 0;
+}
+.hot-search-list,
+.history-list{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.hot-search{
+  font-size: 26rpx;
+}
+.hot-search-item{
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+  padding: 16rpx 30rpx;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+  color: #333333;
+  background-color: #f5f5f5;
+}
+/* 搜索结果 列表 */
+.search-res-list{
+  margin-top: 48rpx;
+}
+.search-book{
+  margin-bottom: 20rpx;
+}
+.book-img{
+  width: 240rpx;
+  height: 280rpx;
+  border-radius: 6rpx;
+}
+.book-info{
+  width: calc(100% - 200rpx);
+  padding-top: 20rpx;
+  margin-left: 30rpx;
+}
+.book-info-title{
+  margin-bottom: 30rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+.book-info-desc,
+.book-author,
+.book-status{
+  font-size: 28rpx;
+  color: #999;
+}
+.book-author{
+  font-size: 12px;
+}
+.book-info-desc{
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-box-origin: vertical; /* 设置或检索伸缩盒子的子元素的排列方式 */
+  -webkit-line-clamp: 2;
+  height: 80rpx;
+  margin-bottom: 55rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.about-book{
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+.search-book:last-child .about-book{
+  border: none;
+}
+.book-status{
+  font-size: 12px;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  background-color: #f5f5f5;
+}
+
+/* night */
+.container.night{
+  background-color: #0c0c0d;
+}
+.night .search,
+.night .hot-search-item{
+  color: #5e5e5f;
+  background-color: #131314;
+}
+.night .cancel{
+  color: #114d3d;
+}
+.night .book-img{
+  opacity: .4;
+}
+.night .book-status{
+  background-color: #131314;
+  color: #114d3d !important;
+}
+.night .about-book{
+  border-bottom-color: #222;
+}

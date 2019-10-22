@@ -1,0 +1,55 @@
+/* pages/components/loading/loading.wxss */
+.night.animation-loading{
+  background-color: black;
+}
+.night .round{
+  filter: brightness(0.5);
+}
+.animation-loading{
+  width: 100vw;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+.loading{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  width: 80px;
+  height: 80px;
+  transform: translate(-50%, -50%);
+  animation: rotate 3s linear infinite;
+}
+.round{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  opacity: .8;
+  transition: transform .3s;
+}
+.round:nth-child(1) {
+  top: 0;
+  left: 0;
+  background-color: greenyellow;
+}
+.round:nth-child(2) {
+  top: 0;
+  left: 43px;
+  background-color: aquamarine;
+}
+.round:nth-child(3) {
+  top: 43px;
+  left: 0;
+  background-color: lightgreen;
+}
+.round:nth-child(4) {
+  top: 43px;
+  left: 43px;
+  background-color: hotpink;
+}
+@keyframes rotate{
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

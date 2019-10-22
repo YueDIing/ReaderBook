@@ -1,0 +1,50 @@
+/* pages/components/animation/slideEnter/slideEnter.wxss */
+.slide-enter{
+  position: absolute;
+  transition-timing-function: linear;
+}
+/* .default-top{
+  top: -100%;
+  left: 0;
+}
+.exec-top.exec-top{
+  top: 0;
+}
+
+.default-bottom{
+  bottom: -100%;
+  left: 0;
+}
+.exec-bottom.exec-bottom{
+  bottom: 0;
+}
+
+.default-right{
+  bottom: 0;
+  right: -100%;
+}
+.exec-right.exec-right{
+  right: 0;
+}
+
+.default-left{
+  bottom: 0;
+  left: -100%;
+}
+.exec-left.exec-left{
+  left: 0;
+}
+ */
+
+ .top{
+   top: 0;
+ }
+ .bottom{
+   bottom: 0;
+ }
+ .right{
+   right: 0;
+ }
+ .left{
+   left: 0;
+ }

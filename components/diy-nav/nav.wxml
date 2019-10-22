@@ -1,0 +1,10 @@
+<!--pages/components/diy-nav/nav.wxml-->
+<view class="nav {{nightModel ? 'night' : ''}} {{removeFixed ? '' : 'fixed'}}">
+  <view
+    class="iconfont {{iconClass}} nav-back"
+    wx:if="{{showBackIcon}}"
+    bindtap="back"
+  ></view>
+  <view class="nav-title">{{title}}</view>
+</view>
+<slot></slot>

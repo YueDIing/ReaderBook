@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "nav": "../../components/diy-nav/nav",
+    "loading": "../../components/loading/loading",
+    "enterAnimation": "../../components/animation/enter/enter",
+    "fade": "../../components/animation/fade/fade",
+    "slideEnter": "../../components/animation/slideEnter/slideEnter"
+  }
+}

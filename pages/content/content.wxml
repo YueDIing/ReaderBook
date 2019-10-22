@@ -1,0 +1,191 @@
+
+<view class="protection-mask" wx:if="{{ viewConfig.modes.protection.state }}"></view>
+<loading status="{{loading}}" nightModel="{{ viewConfig.modes.daytoNight.state }}"></loading>
+<!-- top nav -->
+<enterAnimation state="{{consoleState}}" direction="top">
+	<nav title="{{bookInfo.bookName}}" removeFixed="{{true}}" nightModel="{{viewConfig.modes.daytoNight.state}}"></nav>
+</enterAnimation>
+<!-- main -->
+
+<!-- <view
+	class="content-main {{viewConfig.modes.daytoNight.state ? 'night' : ''}}"
+	bindtap="show"
+	style="background-color: {{viewConfig.background.lists[viewConfig.background.current]}}; font-size: {{viewConfig.fontSize * 2}}rpx; line-height: {{viewConfig.fontSize * 2 * 1.875}}rpx;"
+>
+	<view 
+		class="contents"
+		wx:for="{{contents.chapterContents}}"
+		wx:for-item="item"
+		wx:for-index="index"
+		wx:key="{{item.title || index}}"
+	>
+		<text class="contents-title" selectable="false" space="false" decode="false">{{item.title}}</text>
+		<text class="contents-text" selectable="false" space="false" decode="false">
+			{{item.text}}
+		</text>
+	</view>
+</view> -->
+<scroll-view
+	scroll-x="false"
+	scroll-y="false"
+	upper-threshold="50"
+	lower-threshold="50"
+
+	scroll-top="{{ contentsTop }}"
+	scroll-left="0"
+	scroll-into-view=""
+	enable-back-to-top="false"
+	
+	bindscrolltolower="attachmentChapter"
+	class="content-main {{viewConfig.modes.daytoNight.state ? 'night' : ''}}"
+	bindtap="show"
+	style="background-color: {{viewConfig.background.lists[viewConfig.background.current]}}; font-size: {{viewConfig.fontSize * 2}}rpx; line-height: {{viewConfig.fontSize * 2 * 1.875}}rpx;"
+>
+	<view 
+		class="contents"
+		wx:for="{{contents.chapterContents}}"
+		wx:for-item="item"
+		wx:for-index="index"
+		wx:key="{{item.title || index}}"
+	>
+		<text class="contents-title" selectable="false" space="false" decode="false">{{item.title}}</text>
+		<text class="contents-text" selectable="false" space="false" decode="false">
+			{{item.text}}
+		</text>
+	</view>
+</scroll-view>
+	
+	
+<!-- bottom menus -->
+<enterAnimation state="{{consoleState}}" direction="bottom">
+	<view class="menus {{ viewConfig.modes.daytoNight.state ? 'night' : '' }}">
+		<view class="chapter-info">
+			<view class="iconfont iconyoujiantou {{ !contents.prev ? 'not-chapter' : '' }} prev" bindtap="toggleChapter" data-type="-1"></view>
+			<text class="ellipsis">{{contents.chapterContents[contents.chapterContents.length - 1].title}}</text>
+			<view class="iconfont iconyoujiantou {{ !contents.next ? 'not-chapter' : '' }} next" bindtap="toggleChapter" data-type="1"></view>
+		</view>
+		<view class="operation">
+			<view
+				class="menu-item"
+				wx:for="{{menus}}"
+				wx:for-item="item"
+				wx:for-index="index"
+				wx:key="{{item.id || index}}"
+				data-index="{{index}}"
+				bindtap="showCurrent"
+			>
+				<view class="iconfont menus-icon {{item.icon}}"></view>
+				<text>{{item.name}}</text>
+			</view>
+		</view>
+	</view>
+</enterAnimation>
+<!-- Navigation corresponding module -->
+<view class="mens-model {{viewConfig.modes.daytoNight.state ? 'night' : ''}}">
+	<!-- directory -->
+	<enterAnimation state="{{ menus.directory.state }}" direction="left">
+		<fade state="{{ chapters.mask }}" delay="300">
+			<view class="directory-bg" bindtap="closedChapterList"></view>
+		</fade>
+		<view class="directory">
+			<view class="book-info">
+				<view class="book-name">亘古大帝</view>
+				<view class="justify book-chapter-info">
+					<text class="chapter-sum"> 共 {{bookInfo.chapterNum}} 章节 </text>
+					<view class="iconfont {{ chapters.sort ? 'iconpaixu-shengxu' : 'iconpaixu-jiangxu' }} sort" bindtap="sortChapters"></view>
+				</view>
+			</view>
+			<scroll-view
+				class="chapters-list"
+				scroll-y="true"
+				scroll-top="{{500}}"
+			>
+				<view
+					wx:for="{{chapters.data}}"
+					wx:for-item="item"
+					wx:for-index="index"
+					wx:key="{{item.chapterId || index}}"
+					data-index="{{ index }}"
+					bindtap="loadNewChapter"
+					class="ellipsis {{contents.index === index ? 'active' : ''}}"
+				> {{ item.chapterName }} </view>
+			</scroll-view>
+				
+		</view>
+	</enterAnimation>
+	<!-- Light -->
+	<enterAnimation state="{{menus.higt.state}}" direction="bottom">
+		<view class="light">
+			<view class="iconfont iconliangdu-"></view>
+			<slider
+				class="light-bar"
+				min="0"
+				max="100"
+				value="{{lightNumber}}"
+				block-size="22"
+				bindchanging="reSetLight"
+				activeColor=""
+				backgroundColor="{{ viewConfig.modes.daytoNight.state ? '#000' : '#323232' }}"
+				block-color="{{ viewConfig.modes.daytoNight.state ? '#5e5e5f' : 'white' }}"
+			></slider>
+			<view class="iconfont iconliangdu-"></view>
+		</view>
+	</enterAnimation>
+	<!-- setting -->
+	<enterAnimation state="{{menus.higt.setting || menus.setting.state}}">
+		<view class="setting">
+			<view class="text-config">
+				<view class="text-title">字号</view>
+				<view class="justify content font-size">
+					<view class="iconfont font-less iconjian" bindtap="settingFontSize"></view>
+					<text>{{viewConfig.fontSize}}</text>
+					<view class="iconfont font-add iconjia-copy" bindtap="settingFontSize" data-type="add"></view>
+				</view>
+				<view class="text-title">字体</view>
+				<view class="justify content font-type">
+					<view
+						wx:for="{{viewConfig.fontType.lists}}"
+						wx:for-item="item"
+						wx:for-index="index"
+						wx:key="{{item || index}}"
+						data-index="{{index}}"
+						data-type="fontType"
+						class="{{viewConfig.fontType.current === index && 'active'}}"
+						bindtap="changeSetting"
+					>
+						{{item}}
+					</view>
+				</view>
+				<view class="text-title">背景</view>
+				<view class="justify content background">
+					<view
+						wx:for="{{viewConfig.background.lists}}"
+						wx:for-item="item"
+						wx:for-index="index"
+						wx:key="{{item || index}}"
+						data-index="{{index}}"
+						class="{{viewConfig.background.current === index ? 'active' : ''}}"
+						style="background-color: {{item}}"
+						bindtap="changeSetting"
+					>
+					</view>
+				</view>
+			</view>
+			<view class="more">
+				<view
+					wx:for="{{viewConfig.modes}}"
+					wx:for-item="item"
+					wx:for-index="index"
+					wx:key="{{item.text || index}}"
+					data-key="{{index}}"
+					bindtap="toggleVieModes"
+				>
+					<view class="iconfont more-item-icon {{item.state ? item.enter : item.leave}}"></view>
+					<view>
+						{{item.state ? item.enterText : item.text}}
+					</view>
+				</view>
+			</view>
+		</view>
+	</enterAnimation>
+</view>

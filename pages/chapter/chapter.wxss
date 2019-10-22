@@ -1,0 +1,31 @@
+/* pages/chapter/chapter.wxss */
+.chapter-head{
+  position: fixed;
+  top: 0;
+  align-items: center;
+  width: calc(100% - 64rpx);
+  padding: 30rpx 0;
+  font-size: 24rpx;
+  color: #a1a1b3;
+  background-color: white;
+}
+.chapter-list{
+  margin-top: 100rpx;
+}
+.book-state{
+  margin-right: 20rpx;
+}
+.sort-icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: auto;
+  background-color: #ccc;
+}
+.chapter-item navigator{
+  padding: 30rpx 0;
+  font-size: 28rpx;
+  color: #404047;
+}
+.chapter-item:not(:last-child) navigator{
+  border-bottom: 1px solid #ebebf3;
+}

@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<protection state="{{config.modes.protection.state}}"></protection>
+<view class="container home {{config.modes.daytoNight.state ? 'night': ''}}">
+  <nav title="书架" showBackIcon="{{false}}" nightModel="{{config.modes.daytoNight.state}}"></nav>
+  <view class="main-content">
+    <search nightModel="{{config.modes.daytoNight.state}}"></search>
+    <view class="test"></view>
+    <view class="book-list">
+      <navigator
+        hover-class="none"
+        wx:for="{{books}}"
+        wx:for-item="item"
+        wx:for-index="index"
+        wx:key="{{item}}"
+        url="../content/content?bookId={{item.bookId}}"
+        class="book"
+      >
+        <view class="book-img">
+          <image src="{{item.imgUrl}}"></image>
+          <view class="book-state">{{!itme.state ? '连载' : '完结'}}</view>
+        </view>
+        <view class="ellipsis book-name">{{item.bookName}}</view>
+      </navigator>
+
+      <navigator class="book" target="" url="../search/search" hover-class="none" open-type="navigate">
+          <view class="iconfont iconjia-copy book-img"></view>
+      </navigator>
+        
+      <view class="book"></view>
+    </view>
+    <view class=""></view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<!--pages/components/animation/slideEnter/slideEnter.wxml-->
+<!-- <view 
+  class="slide-enter default-{{direction}} {{exec ? 'exec-' + direction : ''}}" 
+  style="transition: {{direction}} {{duration}}ms;"
+>
+  <slot></slot>
+</view> -->
+
+<view 
+  class="slide-enter {{direction}}"
+  animation="{{ animationData }}"
+>
+  <slot></slot>
+</view>

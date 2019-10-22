@@ -1,0 +1,99 @@
+<!--pages/bookInfo/bookInfo.wxml-->
+<protection state="{{ config.modes.protection.state }}"></protection>
+<loading status="{{loadingStatus}}" wx:if="{{loadingStatus}}"></loading>
+<view class="container {{ config.modes.daytoNight.state ? 'night' : '' }}" wx:else> 
+  <nav title="书籍详情" status="{{true}}" nightModel="{{ config.modes.daytoNight.state }}"></nav>
+  <view class="main-content">
+    <view class="book-wrap">
+      <!-- book info -->
+      <view class="justify book-head">
+        <image src="{{bookInfo.imgUrl}}" class="book-img"></image>
+        <view class="book-info" wx:if="{{bookInfo.bookName}}">
+          <view class="title book-title">{{bookInfo.bookName}}</view>
+          <view class="book-author">{{bookInfo.authorName}}</view>
+          <view class="book-status">{{bookInfo.className}} {{bookInfo.wordCount}}万字</view>
+        </view>
+      </view>
+      <!-- dsec -->
+      <view class="book-desc">
+        <view class="title">内容简介</view>
+        <view
+          class="desc-text {{descDetails ? 'expand' : ''}}"
+          bindtap="expandText"
+        >
+          <text>{{bookInfo.desc}}</text>
+          <viwe class="iconfont iconjiantou_down expand-icon"></viwe>
+        </view>
+        <view class="book-tag">
+          <view class="book-tag-item"
+            wx:for="{{bookInfo.tag}}"
+            wx:for-item="item"
+            wx:index="index"
+            wx:key="itme || index"
+          >
+            {{item.tagName}}
+          </view>
+        </view>
+      </view>
+      <!-- chapter -->
+      <view class="book-chapter">
+        <navigator url="../content/content?bookId={{bookInfo.bookId}}&chapterId={{bookInfo.lastChapter.chapterId}}" hover-class="none" class="justify new-chapter">
+          <view class="title">最新</view>
+          <view class="chapter-info">
+            <text>{{bookInfo.lastChapter.chapterName}}</text>
+            <view class="iconfont iconyoujiantou arrow-r"></view>
+          </view>
+        </navigator>
+        <navigator url="../chapter/chapter?bookId={{bookInfo.bookId}}" class="justify chapter-directory" hover-class="none">
+          <view class="title">目录</view>
+          <view class="chapter-info">
+            <text>共 {{bookInfo.chapterNum}} 章</text>
+            <view class="iconfont iconyoujiantou arrow-r"></view>
+          </view>
+        </navigator>
+      </view>
+      <!-- comment -->
+      <view class="comment">
+        <view class="title">评论</view>
+        <view class="comment-list">
+          <view
+            wx:for="{{comments.data}}"
+            wx:for-item="item"
+            wx:index="index"
+            wx:key="item || index"
+            class="comment-item"
+          >
+            <view class="comment-user-info">
+              <image src="{{item.userPhoto}}" class="user-img"></image>
+              <view class="user-name">{{item.nickName}}</view>
+            </view>
+            <view class="comment-info">
+              <text class="comment-text">{{item.text}}</text>
+              <view class="comment-bottom">
+                <view class="comment-time">{{item.pubTime}}</view>
+                <view class="reply">
+                  <view class="iconfont icondianzan icon-replay"></view>
+                  <text>{{item.zanNum}}</text>
+                </view>
+                <view class="good">
+                  <view class="iconfont iconxiaoxi icon-good"></view>
+                  <text>{{item.replyNum}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="comment-more">查看全部评论({{comments.info.total}})条</view>
+        </view>
+      </view>
+    </view>
+    <view class="justify menu">
+      <view class="title" bindtap="addBookshelf" wx:if="{{!currentBookConfig.record}}">添加书架</view>
+      <view class="title add" wx:else>已加书架</view>
+      <navigator 
+        url="../content/content?bookId={{bookInfo.bookId}}"     
+        hover-class="none"
+        class="title"
+      >{{!currentBookConfig.reader ? '开始阅读' : '继续阅读'}}</navigator>
+    </view>
+  </view>
+</view>

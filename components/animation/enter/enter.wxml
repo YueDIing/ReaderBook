@@ -1,0 +1,12 @@
+<!--pages/components/animation/enter/enter.wxml-->
+<!-- 
+  判断是否渲染的两种方式
+    1. hidden // 初始化消耗大
+    2. wx:if // 切换消耗大
+ -->
+<view>
+  <view class="enter {{newState ? direction + '-enter' : direction + '-leave'}}" wx:if="{{!showState}}">
+    <slot></slot>
+  </view>
+</view>
+  

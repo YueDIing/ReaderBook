@@ -1,0 +1,266 @@
+.protection-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background-color: rgba(199, 237, 204, 1);
+}
+.content-main{
+  width: calc(100vw + 40rpx);
+  max-height: 100vh;
+  /* padding: 150rpx 30rpx 50rpx 30rpx; */
+  text-align: justify;
+  background-color: #e5c9a2;
+  transition: background-color .8s;
+  overflow: hidden;
+}
+.contents{
+  padding: 0 30rpx 50rpx 30rpx;
+}
+.contents.contents:first-child{
+  padding-top: 150rpx;
+}
+.contents:not(:last-child){
+  margin-bottom: 60rpx;
+}
+.contents,
+.contents .contents-title,
+.contents .contents-text{
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* nav */
+.menus{
+  padding: 10rpx 0 20rpx;
+  background-color: white;
+  box-shadow: 0 0 10rpx 0 rgba(0, 0, 0, .3);
+}
+.menus > view{
+  padding: 0 30rpx;
+}
+.menus .chapter-info{
+  display: flex;
+  padding-bottom: 10rpx;
+  line-height: 70rpx;
+  text-align: center;
+  border-bottom: 20rpx solid #f1f1f1;
+}
+.chapter-info view{
+  width: 10%;
+  transition: opacity .3s;
+}
+.chapter-info .prev{
+  transform: rotate(-180deg)
+}
+.chapter-info .not-chapter{
+  opacity: .3;
+}
+.chapter-info text{
+  width: 80%;
+  padding: 0 30rpx;
+  max-height: 35px;
+  font-size: 24rpx;
+}
+.menus .operation{
+  display: flex;
+  padding-top: 20rpx;
+}
+.operation > view{
+  flex: 1;
+  text-align: center;
+}
+.menus-icon{
+  font-size: 44rpx;
+  margin-bottom: 10rpx;
+}
+.menus-icon + text{
+  color: #999;
+  font-size: 24rpx;
+}
+
+/* directory */
+.directory{
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  height: 100vh;
+  padding: 60rpx 30rpx 30rpx;
+  background: white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
+  transition: background-color .3s;
+}
+.directory-bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .5);
+}
+.book-name{
+  margin-bottom: 10rpx;
+  padding: 10rpx 0;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.book-chapter-info{
+  color: #999;
+  line-height: 60rpx;
+  font-size: 24rpx;
+}
+.chapter-sum{
+  font-size: inherit;
+}
+.chapters-list{
+  max-height: calc(100vh - 230rpx);
+  margin-top: 10rpx;
+}
+.chapters-list view{
+  line-height: 70rpx;
+  transition: color .3s;
+}
+.chapters-list .active{
+  color: #00c98d;
+}
+.chapters .sort{
+  font-size: 28rpx;
+}
+
+/* light */
+.light{
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  min-height: 120rpx;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+  background-color: white;
+  transition: background-color .8s;
+}
+.light view{
+  width: 20%;
+  font-size: 44rpx;
+}
+.light view:first-child{
+  color: #999;
+}
+.light-bar{
+  width: 60%;
+  padding: 0 20rpx;
+}
+
+/* setting */
+.setting{
+  padding: 20rpx 0;
+  background-color: white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
+  transition: background-color .8s;
+}
+.setting > view{
+  padding: 0 30rpx;
+}
+.setting .text-config{
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+  border-bottom: 20rpx solid #f1f1f1;
+  text-align: center;
+  line-height: 70rpx;
+  transition: border-color .1s;
+}
+.text-config .text-title{
+  width: 15%;
+  margin-right: 30rpx;
+}
+.text-config .content{
+  display: flex;
+  width: calc(85% - 30rpx);
+}
+.text-config .content:not(:last-child){
+  margin-bottom: 10rpx;
+}
+.text-config .content .text-title{
+  margin-right: 30rpx;
+}
+.text-config .content view{
+  flex: 1;
+  border-radius: 6rpx;
+  border: 2rpx solid transparent;
+  transition: color .3s, border-color .3s;
+}
+.text-config .font-type view:not(:last-child),
+.text-config .background view:not(:last-child){
+  margin-right: 20rpx;
+}
+.text-config .background .active{
+  border-color: #00c98d;
+}
+.font-type.font-type .active{
+  color: #00c98d;
+}
+.font-size view{
+  width: 20%;
+  background-color: #e6e7ec;
+}
+.font-size text{
+  display: block;
+  width: 60%;
+}
+/* estting => more */
+.setting .more{
+  display: flex;
+  padding-top: 20rpx;
+  text-align: center;
+}
+.more > view{
+  flex: 1;
+}
+.more-item-icon{
+  font-size: 44rpx;
+  margin-bottom: 10rpx;
+}
+.more-item-icon + view{
+  color: #999;
+}
+::-webkit-scrollbar{
+  width: 40rpx;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 40rpx;
+  height: 70rpx;
+  background-color: #999;
+}
+
+/* nitght */
+.content-main.night {
+  background-color: #0c0c0d !important;
+}
+.night.menus,
+.night .light,
+.night .setting,
+.night .directory{
+  background-color: #18181a;
+}
+.night.menus {
+  color: #999;
+}
+.night .chapter-info,
+.night .text-config{
+  border-bottom-color: #131314;
+}
+.night .font-size view{
+  background-color: #1e1e20;
+}
+.night .background view,
+.night .font-type view{
+  filter: brightness(0.5);
+}
+.night .directory .active{
+  color: #003d2b;
+}

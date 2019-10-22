@@ -1,0 +1,31 @@
+<!--pages/chapter/chapter.wxml-->
+<loading status="{{loadingStatus}}" wx:if="{{loadingStatus}}"></loading>
+<view class="container" wx:else>
+  <nav title="章节列表"></nav>
+  <view class="justify chapter-head">
+    <view class="chapter-sum">
+      <text class="book-state">{{chapter.state === '1' ? "连载" : "完结"}}</text>
+      <text>共 {{chapter.chapterNum}} 章</text>
+    </view>
+    <view class="sort-icon" bindtap="reverseChapter"></view>
+  </view>
+  <view class="chapter-list">
+    <view class="chapter-item"
+      wx:for="{{chapter.chapterList[0].volumeList}}"
+      wx:for-item="item"
+      wx:index="index"
+      wx:key="item || index"
+    >
+      <navigator
+        wx:for="{{item}}"
+        wx:for-item="temp"
+        wx:index="i"
+        wx:key="item || i"
+        hover-class="none"
+        url="../content/content?bookId={{chapter.bookId}}&chapterId={{temp.chapterId}}&chapterName={{temp.chapterName}}"
+      >
+        {{temp.chapterName}}
+      </navigator>
+    </view>
+  </view>
+</view>

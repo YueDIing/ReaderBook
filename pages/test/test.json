@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "fade": "../components/animation/fade/fade",
+    "slideEnter": "../components/animation/slideEnter/slideEnter",
+    "van-button": "../components/dist/button/index",
+    "van-toast": "../components/dist/toast/index"
+  }
+}

@@ -1,0 +1,102 @@
+/* pages/components/animation/enter/enter.wxss */
+.enter{
+  position: fixed;
+  z-index: 3;
+  width: 100vw;
+  animation: .3s both ease-in-out;
+}
+.hide{
+  display: none;
+}
+
+/* Bottom */
+.bottom-enter,
+.bottom-leave{
+  bottom: 0;
+  left: 0;
+}
+.bottom-enter{
+  transform: translateY(105%);
+  animation-name: bottomEnterAnimation;
+}
+.bottom-leave{
+  transform: translateY(0%);
+  animation-name: bottomLeaveAnimation;
+}
+@keyframes bottomEnterAnimation{
+  from { transform: translateY(105%); }
+  to{ transform: translateY(0); }
+}
+@keyframes bottomLeaveAnimation{
+  from { transform: translateY(0); }
+  to{ transform: translateY(105%); }
+}
+
+/* Top */
+.top-enter,
+.top-leave{
+  top: 0;
+  left: 0;
+}
+.top-enter{
+  transform: translateY(-105%);
+  animation-name: topEnterAnimation;
+}
+.top-leave{
+  transform: translateY(0);
+  animation-name: topLeaveAnimation;
+}
+@keyframes topEnterAnimation{
+  from { transform: translateY(-105%); }
+  to{ transform: translateY(0); }
+}
+@keyframes topLeaveAnimation{
+  from { transform: translateY(0); }
+  to{ transform: translateY(-105%); }
+}
+
+/* Left */
+.left-enter,
+.left-leave{
+  top: 0;
+  left: 0;
+}
+.left-enter{
+  transform: translateX(105%);
+  animation-name: leftEnterAnimation;
+}
+.left-leave{
+  transform: translateX(0);
+  animation-name: leftLeaveAnimation;
+}
+@keyframes leftEnterAnimation{
+  from { transform: translateX(-105%); }
+  to{ transform: translateX(0); }
+}
+@keyframes leftLeaveAnimation{
+  from { transform: translateX(0); }
+  to{ transform: translateX(-105%); }
+}
+
+/* Right */
+.right-enter,
+.right-leave{
+  top: 0;
+  right: 0;
+}
+.right-enter{
+  transform: translateX(105%);
+  animation-name: rightEnterAnimation;
+}
+.right-leave{
+  transform: translateX(0);
+  animation-name: rightLeaveAnimation;
+}
+@keyframes rightEnterAnimation{
+  from { transform: translateX(105%); }
+  to{ transform: translateX(0); }
+}
+@keyframes rightLeaveAnimation{
+  from { transform: translateX(0); }
+  to{ transform: translateX(105%); }
+}

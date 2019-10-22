@@ -1,0 +1,11 @@
+<!--pages/components/search/inde.wxml-->
+<navigator
+  class="search-wrap {{!nightModel ? '' : 'night'}}"
+  url="../search/search"
+  hover-class="none"
+>
+  <view class="search">
+    <view class="search-icon"></view>
+    <text>请输入书名或作者名</text>
+  </view>
+</navigator>
