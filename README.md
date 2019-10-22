@@ -15,3 +15,14 @@
 #### 搜索页
 ![index](result/search.png)
 ![index](result/search_result.png)
+
+#### 书本详情
+![index](result/bookInfo.png)
+
+#### 阅读器部分
+![index](result/reader.png)
+![index](result/reader_menu.png)
+![index](result/reader_setting.png)
+![index](result/night_model.png)
+![index](result/protection_model.png)
+![index](result/directory.png)
