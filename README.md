@@ -10,4 +10,4 @@
 ### 页面展示
 
 #### 主页
-(index)[result/index.png]
+![index](result/index.png)
