@@ -9,5 +9,9 @@
 
 ### 页面展示
 
-#### 主页
+#### 书架
 ![index](result/index.png)
+
+#### 搜索页
+![index](result/search.png)
+![index](result/search_result.png)
